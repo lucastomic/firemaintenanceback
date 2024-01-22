@@ -24,7 +24,7 @@ class AuthController extends Controller
             : response()->json(['error' => 'Could not create user'], 500);
     }
 
-    public function getUser(Request $request)
+    public function getUser()
     {
         try {
             $user = JWTAuth::parseToken()->authenticate();

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Status extends Model
 {
     protected $fillable = [
-        'status', 'datetime', 'id'
+        'status', 'datetime', 'id', 'status'
     ]; 
 
     public function equipment(){

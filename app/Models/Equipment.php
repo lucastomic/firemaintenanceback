@@ -19,8 +19,13 @@ class Equipment extends Model
     public function users(){
         return $this->hasMany(User::class);
     }
-    public function status(){
+    public function statuses(){
         return $this->hasMany(Status::class);
+    }
+
+    public function latestStatus()
+    {
+        return $this->statuses()->orderBy('datetime', 'desc')->first();
     }
 
 }

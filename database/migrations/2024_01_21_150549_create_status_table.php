@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('status', function (Blueprint $table) {
+        Schema::create('statuses', function (Blueprint $table) {
             $table->id();
             $table->dateTime('datetime');
+            //We make status a string and not a boolean in order to extend the status options if its needed
             $table->string('status');
             $table->unsignedBigInteger('equipment_id'); 
             $table->timestamps();

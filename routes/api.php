@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Maintenance\MaintenanceController;
+use App\Http\Controllers\Status\StatusController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Equipment\EquipmentController;
@@ -25,6 +26,9 @@ Route::middleware(['jwt.auth'])->group(function () {
         Route::post('/maintenance/{id}', [MaintenanceController::class, 'createMaintenance']);
         Route::get('/equipments', [EquipmentController::class, 'getAll']);
         Route::get('/equipment/{id}/maintenances', [MaintenanceController::class, 'getByEquipment']);
+        Route::get('/equipment/{id}/statuses', [StatusController::class, 'getByEquipment']);
+        Route::get('/equipment/{id}/lastStatus', [StatusController::class, 'getLastStatus']);
+        Route::post('/equipment/{id}/status', [StatusController::class, 'addStatus']);
     });
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/login', [AuthController::class, 'login']);
