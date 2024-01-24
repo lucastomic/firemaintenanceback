@@ -23,7 +23,7 @@ Route::prefix('v1')->group(function () {
 Route::middleware(['jwt.auth'])->group(function () {
         Route::get('/user', [AuthController::class, 'getUser']);
         Route::get('/maintenances', [MaintenanceController::class, 'getByUser']);
-        Route::post('/maintenance/{id}', [MaintenanceController::class, 'createMaintenance']);
+        Route::post('/equipment/{id}/maintenance', [MaintenanceController::class, 'createMaintenance']);
         Route::get('/equipments', [EquipmentController::class, 'getAll']);
         Route::get('/equipment/{id}/maintenances', [MaintenanceController::class, 'getByEquipment']);
         Route::get('/equipment/{id}/statuses', [StatusController::class, 'getByEquipment']);
